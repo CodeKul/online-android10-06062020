@@ -1,14 +1,20 @@
 package com.melayer.onlineapp
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class CalcData() : ViewModel() {
-    var num1 = 0
-    var num2 = 0
-    var res = 0
 
-     fun calc()  : Int {
-         res = num1 + num2
-         return res
+    private val num1Val = MutableLiveData<Int>(0)
+    private val num2Val = MutableLiveData<Int>(0)
+    private val resVal = MutableLiveData<Int>(0)
+
+    val num1 : LiveData<Int> = num1Val
+    val num2 : LiveData<Int> = num2Val
+    val res : LiveData<Int> = resVal
+
+     fun calc()   {
+         resVal.postValue((num2Val.value ?: 0) + (num1Val.value ?: 0))
      }
 }
