@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, cls)
             val bnd = Bundle()
             bnd.putString("mobile", etMb.text?.toString() ?: "default")
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             intent.putExtras(bnd)
             startActivityForResult(intent, 1234)
         }
