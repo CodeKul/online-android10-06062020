@@ -1,5 +1,6 @@
 package com.ani.interact
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,7 +25,21 @@ class MainActivity : AppCompatActivity() {
             val bnd = Bundle()
             bnd.putString("mobile", etMb.text?.toString() ?: "default")
             intent.putExtras(bnd)
-            startActivity(intent)
+            startActivityForResult(intent, 1234)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when(requestCode) {
+            1234 -> {
+                if(resultCode == Activity.RESULT_OK){
+                    val bkBnd = data?.extras
+                    val nm = bkBnd?.getString("mobName")
+                    etMb.setText(nm.toString())
+                }
+            }
         }
     }
 }
