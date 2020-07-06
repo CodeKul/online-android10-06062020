@@ -7,4 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="btnThm" parent="bigTextStyle">
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="bigTextStyle" parent="Theme.AppCompat">
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

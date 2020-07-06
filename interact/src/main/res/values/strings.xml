@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">InterAct</string>
+    <string name="tiktok_header">How do we build app like TikTok ?</string>
+    <string name="tech_stack">Technology Stack ???</string>
+    <color name="red">#FF0000</color>
 </resources>

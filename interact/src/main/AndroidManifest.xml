@@ -9,7 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SimpleActivity"></activity>
+        <activity android:name=".TikTokActivity"></activity>
+        <activity android:name=".ComplexActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.ani.action" />
+                <action android:name="com.ani.action.complex" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SimpleActivity">
+            <intent-filter>
+                <action android:name="com.ani.action" />
+                <action android:name="com.ani.action.simple.news" />
+                <action android:name="com.ani.action.sports" />
+
+                <category android:name="com.ani.category.cricket" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
