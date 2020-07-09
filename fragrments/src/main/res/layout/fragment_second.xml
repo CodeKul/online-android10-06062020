@@ -4,14 +4,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <Button
         android:id="@+id/btOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Android"
-        android:layout_centerInParent="true"
         />
 
+    <Button
+        android:id="@+id/btMgk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"
+        android:layout_toRightOf="@id/btOk"
+        />
+
+    <SeekBar
+        android:id="@+id/skBrRd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btOk"
+        android:layout_margin="20dp"
+        android:max="255"
+        />
+
+    <SeekBar
+        android:id="@+id/skBrGr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/skBrRd"
+        android:layout_margin="20dp"
+        android:max="255"
+        />
+
+    <SeekBar
+        android:id="@+id/skBrBl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/skBrGr"
+        android:layout_margin="20dp"
+        android:max="255"
+        />
 </RelativeLayout>
