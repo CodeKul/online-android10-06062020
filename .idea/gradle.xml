@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/interact" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/recyclerview" />
+            <option value="$PROJECT_DIR$/storage" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

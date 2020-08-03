@@ -1,7 +1,9 @@
 package com.melayer.onlineapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +28,13 @@ class LoginActivity : AppCompatActivity() {
         viewModel.usNm.observe(this, Observer {
             if(it.length > 10) etUsNm.error = "Length Should not exceed 10"
             else etUsNm.error = null
+        })
+
+        viewModel.areCredsOk.observe(this, Observer {
+            Toast.makeText(this@LoginActivity, "Login is $it", Toast.LENGTH_SHORT).show()
+            if(it) {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            }
         })
     }
 

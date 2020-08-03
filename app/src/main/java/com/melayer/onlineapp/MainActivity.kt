@@ -3,6 +3,7 @@ package com.melayer.onlineapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
             val num1 = if(it.isNotEmpty()) Integer.parseInt(it ?: "0") else 0
             val num2 = Integer.parseInt(viewModel.num2.value ?: "0")
             viewModel.setResult(num1 + num2)
+
+            Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
         })
 
         viewModel.num2.observe(this, Observer {

@@ -12,12 +12,10 @@ class LoginViewModel : ViewModel() {
 
     val usNm  = MutableLiveData<String>()
     val pass = MutableLiveData<String>()
+    val areCredsOk = MutableLiveData<Boolean>()
 
     fun login() {
-        if(usNm.value == "android" && pass.value =="an") {
-
-        }
-
+        areCredsOk.value = (usNm.value == "android" && pass.value =="android")
         Log.i("@ani", "User - ${usNm.value} Pass - ${pass.value}")
     }
 }
