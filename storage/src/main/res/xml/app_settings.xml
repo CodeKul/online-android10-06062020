@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="check_auto_sync"
+        android:title="Turn Auto Sync"
+        android:icon="@drawable/ic_baseline_sync_24"/>
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_dark"
+        android:title="Switch To Dark Mode"
+        android:icon="@drawable/ic_baseline_adjust_24"
+        />
+
+    <Preference
+        android:key="feedback"
+        android:title="Send feedback"
+        android:summary="Report technical issues or suggest new features"
+        android:icon="@drawable/ic_launcher_background"/>
+
+</PreferenceScreen>
