@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.ani.online.storage.room.DmgInfo
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.net.HttpURLConnection
 import java.net.URLConnection
 
@@ -14,12 +17,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val app = application as StorageApp
         btnWrite.setOnClickListener {
-            storeToken()
+//            storeToken()
+            Thread {
+                app.db.dmgInfoDao().saveDmg(
+                    DmgInfo(2, "xyz", 10, "${System.currentTimeMillis()}" )
+                )
+            }.start()
         }
 
         btnRead.setOnClickListener {
-            retrieveToken()
+//            retrieveToken()
+
+            GlobalScope.launch {
+                app.db.dmgInfoDao().all().forEach {
+                    Log.i("@ani" , it.mobile)
+                }
+            }
         }
     }
 
