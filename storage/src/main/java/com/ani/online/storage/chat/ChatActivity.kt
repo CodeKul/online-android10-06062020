@@ -16,7 +16,6 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-
         val chatRepo = ChatRepository((application as StorageApp).db.chatDao())
 
         val adapter = ChatAdapter(this, emptyList() )
@@ -29,13 +28,15 @@ class ChatActivity : AppCompatActivity() {
         })
         btOk.setOnClickListener {
             Thread {
-                chatRepo.save(
+                val rowCnt = chatRepo.save(
                     Chat(
                         System.currentTimeMillis(),
                         "Ani",
                         etCht.text.toString()
                     )
                 )
+
+                Log.i("@ani", "Row Count is $rowCnt")
             }.start()
         }
     }

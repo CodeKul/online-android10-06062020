@@ -10,7 +10,7 @@ import androidx.room.Query
 interface ChatDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun save(chat : Chat)
+    fun save(chat : Chat) : Long
 
     @Query("select * from chat_data")
     fun chats() : LiveData<List<Chat>>
