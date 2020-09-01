@@ -1,5 +1,6 @@
 package com.ani.online.notifications
 
+import android.app.DatePickerDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,8 +9,10 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnClk.setOnClickListener {
-            statusBarNotification()
+            datePicker()
         }
     }
 
@@ -54,8 +57,16 @@ class MainActivity : AppCompatActivity() {
                 .setOngoing(true)
                 .setContentIntent(pi)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .addAction(R.drawable.ic_baseline_play_circle_filled_24, "Play", pi)
-                .addAction(R.drawable.ic_baseline_pause_circle_filled_24, "Pause", pi)
+                .addAction(
+                    R.drawable.ic_baseline_play_circle_filled_24,
+                    "Play",
+                    pi
+                )
+                .addAction(
+                    R.drawable.ic_baseline_pause_circle_filled_24,
+                    "Pause",
+                    pi
+                )
 
             val name = "Ani"
             val descriptionText = "description"
@@ -80,5 +91,33 @@ class MainActivity : AppCompatActivity() {
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.notify(123, builder.build())
         }
+    }
+
+    private fun alertDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setIcon(R.drawable.ic_baseline_notifications_24)
+            .setTitle("Title")
+            .setMessage("Message")
+            .setPositiveButton("Yes") { _, _ ->
+                Toast.makeText(this, "Yes Clicked", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("No") { _, _ ->
+                Toast.makeText(this, "No Clicked", Toast.LENGTH_SHORT).show()
+            }
+        val ad = builder.create()
+        ad.show()
+    }
+
+    private fun datePicker() {
+        val dpd = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                Toast.makeText(this, "$dayOfMonth - ${month+1} - $year", Toast.LENGTH_SHORT).show()
+            },
+            2020,
+            8,
+            1
+        )
+        dpd.show()
     }
 }
