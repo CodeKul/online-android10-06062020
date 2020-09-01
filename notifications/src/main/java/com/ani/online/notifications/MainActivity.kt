@@ -9,7 +9,6 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnClk.setOnClickListener {
-            datePicker()
+            customDialog()
         }
     }
 
@@ -119,5 +118,14 @@ class MainActivity : AppCompatActivity() {
             1
         )
         dpd.show()
+    }
+
+    private fun timePicker() {
+        // Homework
+    }
+
+    private fun customDialog() {
+        val appDialog = AppDialogFragment() //Homework -> getting event here
+        appDialog.show(supportFragmentManager, AppDialogFragment.DIALOG_DELETE_CONFIRM)
     }
 }
